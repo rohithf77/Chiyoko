@@ -56,18 +56,18 @@ async def pm_next_page(bot, query):
     else: off_set = offset - 10
     if n_offset == 0:
         btn.append(
-            [InlineKeyboardButton("⬅️ ʙᴀᴄᴋ", callback_data=f"pmnext_{req}_{key}_{off_set}"),
+            [InlineKeyboardButton("◀️ ʙᴀᴄᴋ", callback_data=f"pmnext_{req}_{key}_{off_set}"),
              InlineKeyboardButton(f"❄️ ᴩᴀɢᴇꜱ {math.ceil(int(offset) / 10) + 1} / {math.ceil(total / 10)}", callback_data="pages")]                                  
         )
     elif off_set is None:
         btn.append(
             [InlineKeyboardButton(f"❄️ {math.ceil(int(offset) / 10) + 1} / {math.ceil(total / 10)}", callback_data="pages"),
-             InlineKeyboardButton("ɴᴇxᴛ ➡️", callback_data=f"pmnext_{req}_{key}_{n_offset}")])
+             InlineKeyboardButton("ɴᴇxᴛ ▶️", callback_data=f"pmnext_{req}_{key}_{n_offset}")])
     else:
         btn.append([
-            InlineKeyboardButton("⬅️ ʙᴀᴄᴋ", callback_data=f"pmnext_{req}_{key}_{off_set}"),
+            InlineKeyboardButton("◀️ ʙᴀᴄᴋ", callback_data=f"pmnext_{req}_{key}_{off_set}"),
             InlineKeyboardButton(f"❄️ {math.ceil(int(offset) / 10) + 1} / {math.ceil(total / 10)}", callback_data="pages"),
-            InlineKeyboardButton("ɴᴇxᴛ ➡️", callback_data=f"pmnext_{req}_{key}_{n_offset}")
+            InlineKeyboardButton("ɴᴇxᴛ ▶️", callback_data=f"pmnext_{req}_{key}_{n_offset}")
         ])
     try:
         await query.edit_message_reply_markup(reply_markup=InlineKeyboardMarkup(btn))
@@ -131,7 +131,7 @@ async def pm_AutoFilter(client, msg, pmspoll=False):
         req = message.from_user.id if message.from_user else 0
         btn.append(
             [InlineKeyboardButton(text=f"❄️ ᴩᴀɢᴇꜱ 1/{math.ceil(int(total_results) / 6)}", callback_data="pages"),
-            InlineKeyboardButton(text="ɴᴇxᴛ ➡️", callback_data=f"pmnext_{req}_{key}_{offset}")]
+            InlineKeyboardButton(text="ɴᴇxᴛ ▶️", callback_data=f"pmnext_{req}_{key}_{offset}")]
         )
     else:
         btn.append(
